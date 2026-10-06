@@ -1,0 +1,19 @@
+# model weights and checkpoints (link the Drive folder instead)
+*.pt
+*.pth
+*.bin
+*.safetensors
+checkpoint*/
+base_model/
+arm_a/
+arm_b/
+arm_c/
+# python / notebooks
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+# os / misc
+.DS_Store
+*.zip

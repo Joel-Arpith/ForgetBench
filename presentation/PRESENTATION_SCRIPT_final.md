@@ -64,7 +64,7 @@ Hand off: *"So what matters is whether forgetting survives — and the literatur
 
 **Slide 5 — Four Milestones and One Warning.** One breath each: SISA (exact, retrain-scale), NPO/RMU (cheap, approximate), the relearning-attack warning, TOFU/MUSE (score forgetting once, never after an attack).
 
-**Slide 6 — The Unoccupied Quadrant.** Exact methods are durable but expensive; cheap methods collapse under attack; nothing is cheap *and* durable. "Our design target for HRU is 2–5× a scrub pass. That is a target, not a result — Arpith will show where we actually are."
+**Slide 6 — The Unoccupied Quadrant.** Exact methods are durable but expensive; cheap methods collapse under attack; nothing is cheap *and* durable. **"In prior work, nothing sits in this corner. The teal dot is HRU — measured, at 3× a scrub pass. Arpith will show exactly where it lands."**
 
 ---
 

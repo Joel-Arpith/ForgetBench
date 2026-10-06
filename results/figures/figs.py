@@ -86,7 +86,7 @@ a2.set_ylim(0, 1.309 * 1.15)
 a2.set_ylabel("Loss after attack (higher = durable)"); a2.set_title("Durability after attack", fontsize=11)
 fig.tight_layout(); fig.savefig(f"{OUT}/fig4_2_sharding.png", dpi=300); plt.close(fig)
 
-# ---------------------------------------------------------------- Fig 4.3 durability vs damage
+# ---------------------------------------------------------------- Fig 4.4 durability vs damage
 x = np.array([a[1] for a in ARMS]); y = np.array([a[2] for a in ARMS])
 b, a0 = np.polyfit(x, y, 1); r = np.corrcoef(x, y)[0, 1]
 fig, ax = plt.subplots(figsize=(6.5, 4.0))
@@ -101,13 +101,13 @@ ax.set_xlabel("Retain log-prob (further left = more damage to the model)")
 ax.set_ylabel("Durability: forget log-prob after attack\n(lower = more durable)")
 ax.set_title(f"Durability correlates with model damage (r = {r:+.2f}, 12 arms)", fontsize=10.5)
 ax.grid(alpha=.3); ax.legend(loc="lower right", frameon=False)
-fig.tight_layout(); fig.savefig(f"{OUT}/fig4_3_damage.png", dpi=300); plt.close(fig)
+fig.tight_layout(); fig.savefig(f"{OUT}/fig4_4_damage.png", dpi=300); plt.close(fig)
 
 res = {n: dy - (a0 + b * rx) for n, rx, dy, *_ in ARMS}
 print(f"fit: dur = {a0:.3f} + {b:.3f} * retain ; r = {r:.3f}")
 for n, v in sorted(res.items(), key=lambda kv: kv[1]): print(f"  {n:22s} residual {v:+.3f}")
 
-# ---------------------------------------------------------------- Fig 4.4 cost-durability sweet spot
+# ---------------------------------------------------------------- Fig 4.3 cost-durability sweet spot
 # Target zone: durability between -0.6 and -1.56 (at least as durable as full retraining)
 # at a cost below full retraining (150 updates). Same measured values as Table 4.1.
 ZONE = (-1.56, -0.6)
@@ -146,5 +146,5 @@ def sweet_spot(path, dark=False):
         ax.grid(alpha=.15 if dark else .3)
         fig.tight_layout(); fig.savefig(path, dpi=300 if not dark else 200, facecolor=fig.get_facecolor()); plt.close(fig)
 
-sweet_spot(f"{OUT}/fig4_4_sweetspot.png")
+sweet_spot(f"{OUT}/fig4_3_sweetspot.png")
 sweet_spot(f"{os.path.dirname(OUT)}/fig_sweetspot_dark.png", dark=True)

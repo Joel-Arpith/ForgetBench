@@ -1,0 +1,6 @@
+torch
+transformers
+peft
+accelerate
+torchao>=0.12.0  # ponytail: Colab preinstalls torchao==0.10.0, which fails a strict >0.10.0
+                 # check inside transformers even though we never touch quantization; pin past it
